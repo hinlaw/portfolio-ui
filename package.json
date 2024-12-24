@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "^14.2.21",
+    "next-translate": "^2.6.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -20,6 +21,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.2",
+    "next-translate-plugin": "^2.6.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

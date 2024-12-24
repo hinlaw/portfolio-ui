@@ -1,14 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import useTranslation from "next-translate/useTranslation";
 
 const inter = Inter({ subsets: ["latin"] });
+const { t: tCommon } = useTranslation("common");
 
 const Home = () => {
   return (
     <main className={`min-h-screen ${inter.className}`}>
       <Head>
         <title>Jane Smith - Frontend Developer</title>
+        <div>{tCommon("hi")}</div>
         <meta name="description" content="Frontend developer portfolio showcasing UI/UX skills" />
       </Head>
 

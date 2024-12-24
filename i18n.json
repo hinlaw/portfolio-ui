@@ -1,0 +1,23 @@
+{
+    "locales": [
+        "en", 
+        "zh-hk",
+        "zh-cn"
+    ],
+    "defaultLocale": "en",
+    "pages": {
+    "*": [
+        "common"
+    ],
+    "/": [
+        "home",
+        "example"
+        ],
+    "rgx:^/auth.*": [
+        "auth"
+        ],
+    "/about": [
+        "about"
+    ]
+}
+}
