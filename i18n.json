@@ -10,8 +10,7 @@
         "common"
     ],
     "/": [
-        "home",
-        "example"
+        "home"
         ],
     "rgx:^/auth.*": [
         "auth"
