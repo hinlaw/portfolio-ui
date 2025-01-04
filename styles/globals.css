@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 :root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 233, 111, 20;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+:root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -19,6 +30,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 
 @layer base {
   :root {
@@ -79,6 +91,7 @@ body {
 @layer base {
   * {
     @apply border-border;
+    @apply transition-colors duration-300 ease-in-out;
   }
   body {
     @apply bg-background text-foreground;

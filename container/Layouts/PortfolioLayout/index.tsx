@@ -1,6 +1,7 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import { ThemeProvider } from '@/components/ThemeProvider'
+import Head from 'next/head'
 
 const poppins = Poppins({
     weight: ['400', '600', '700'],
@@ -19,9 +20,21 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className="scroll-smooth">
-            <body className={poppins.className}>{children}</body>
-        </html>
+        <>
+            <Head>
+                <title>title</title>
+                <meta name="description" content={metadata.description || ''} />
+                <link rel="stylesheet" />
+            </Head>
+            <div className={poppins.className}>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="light"
+                    disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
+            </div>
+        </>
     )
 }
-

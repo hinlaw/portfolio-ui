@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { ModeToggle } from '@/components/ThemeProvider/ModeToggle'
 
 export default function Hero() {
     const [isVisible, setIsVisible] = useState(false)
@@ -9,14 +10,14 @@ export default function Hero() {
     }, [])
 
     return (
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-            <Image
+        <section className="min-h-screen flex items-center justify-center relative overflow-hidden dark:bg-gray-900">
+            {/* <Image
                 src="/hero-background.jpg"
                 alt="Hero background"
                 layout="fill"
                 objectFit="cover"
                 className="z-0"
-            />
+            /> */}
             <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
             <div className={`relative z-20 text-center transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <h1 className="text-6xl font-bold mb-4 text-white">
