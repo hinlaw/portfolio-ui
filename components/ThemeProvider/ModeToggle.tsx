@@ -1,9 +1,7 @@
-import { Expand } from "@theme-toggles/react"
 import { useTheme } from "next-themes"
 import { Button } from "@/ui/button"
 import useTranslation from "next-translate/useTranslation"
 import { useEffect, useState } from 'react'
-import "@theme-toggles/react/css/Expand.css"
 import { DarkModeSwitch } from "react-toggle-dark-mode"
 
 export function ModeToggle() {
