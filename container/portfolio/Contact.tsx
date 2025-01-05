@@ -22,9 +22,28 @@ export default function Contact() {
     }
 
     return (
-        <section className="py-20 bg-gray-100">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">Contact Me</h2>
+        <section className="py-20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900">
+                <motion.div
+                    className="absolute inset-0"
+                    animate={{
+                        background: [
+                            "radial-gradient(circle at 0% 0%, rgba(0,0,255,0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 100% 100%, rgba(128,0,128,0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 0% 100%, rgba(0,0,255,0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 100% 0%, rgba(128,0,128,0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 0% 0%, rgba(0,0,255,0.1) 0%, transparent 50%)",
+                        ]
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "linear"
+                    }}
+                />
+            </div>
+            <div className="container mx-auto px-4 relative">
+                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white">Contact Me</h2>
                 <motion.form
                     onSubmit={handleSubmit}
                     className="max-w-lg mx-auto"
@@ -39,7 +58,7 @@ export default function Contact() {
                             placeholder="Your Name"
                             value={formState.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 bg-white text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                            className="w-full px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                             required
                         />
                     </div>
@@ -50,7 +69,7 @@ export default function Contact() {
                             placeholder="Your Email"
                             value={formState.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 bg-white text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                            className="w-full px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
                             required
                         />
                     </div>

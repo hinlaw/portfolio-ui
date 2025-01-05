@@ -11,26 +11,26 @@ export default function Hero() {
 
     return (
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden dark:bg-gray-900">
-            {/* <Image
-                src="/hero-background.jpg"
+            <Image
+                src="/2024_happy_holiday.jpg"
                 alt="Hero background"
                 layout="fill"
                 objectFit="cover"
                 className="z-0"
-            /> */}
+            />
             <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
             <div className={`relative z-20 text-center transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <h1 className="text-6xl font-bold mb-4 text-white">
-                    <span className="inline-block animate-bounce">J</span>
-                    <span className="inline-block animate-bounce delay-100">o</span>
-                    <span className="inline-block animate-bounce delay-200">h</span>
-                    <span className="inline-block animate-bounce delay-300">n</span>
-                    &nbsp;
-                    <span className="inline-block animate-bounce delay-400">D</span>
-                    <span className="inline-block animate-bounce delay-500">o</span>
-                    <span className="inline-block animate-bounce delay-600">e</span>
+                <h1 className="text-6xl font-bold mb-8 text-white">
+                    <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-100 motion-duration-1000">F</span>
+                    <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-200 motion-duration-1000">r</span>
+                    <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-300 motion-duration-1000">o</span>
+                    <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-300 motion-duration-1000">n</span>
+                    <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-400 motion-duration-1000">t</span>
+                    <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-500 motion-duration-1000">E</span>
+                    <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-600 motion-duration-1000">n</span>
+                    <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-700 motion-duration-1000">d</span>
                 </h1>
-                <h2 className="text-3xl text-blue-400 mb-8 animate-pulse">Frontend Developer</h2>
+                <h2 className="text-3xl text-blue-400 mb-8 animate-pulse">Dexter Law</h2>
                 <p className="text-xl max-w-2xl mx-auto mb-8 text-gray-300">
                     Crafting beautiful, responsive, and user-friendly web experiences with cutting-edge technologies.
                 </p>

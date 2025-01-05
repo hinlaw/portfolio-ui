@@ -21,7 +21,8 @@ export function ModeToggle() {
         <Button
             variant="ghost"
             size="icon"
-            aria-label={tCommon("toggleTheme")}
+            aria-label={tCommon("dark mode")}
+            className="rounded-full p-2 bg-gray-100 dark:bg-gray-600"
         >
             <DarkModeSwitch
                 checked={theme === "dark"}

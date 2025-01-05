@@ -23,9 +23,28 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section className="py-20 bg-gray-100">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">Projects</h2>
+        <section className="py-20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900">
+                <motion.div
+                    className="absolute inset-0"
+                    animate={{
+                        background: [
+                            "radial-gradient(circle at 0% 0%, rgba(0,0,255,0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 100% 100%, rgba(128,0,128,0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 0% 100%, rgba(0,0,255,0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 100% 0%, rgba(128,0,128,0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 0% 0%, rgba(0,0,255,0.1) 0%, transparent 50%)",
+                        ]
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "linear"
+                    }}
+                />
+            </div>
+            <div className="container mx-auto px-4 relative">
+                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white">Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
                         <motion.div
@@ -33,7 +52,7 @@ export default function Projects() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                            className="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
                         >
                             <div className="relative h-48">
                                 <Image
@@ -54,4 +73,3 @@ export default function Projects() {
         </section>
     )
 }
-
