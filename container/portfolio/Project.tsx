@@ -1,7 +1,6 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import useTranslation from 'next-translate/useTranslation'
 
 const projects = [
     {
@@ -22,6 +21,7 @@ const projects = [
 ]
 
 export default function Projects() {
+    const { t: tCommon } = useTranslation('common')
     return (
         <section className="py-20 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900">
@@ -44,7 +44,7 @@ export default function Projects() {
                 />
             </div>
             <div className="container mx-auto px-4 relative">
-                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white">Projects</h2>
+                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white">{tCommon('projects')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
                         <motion.div

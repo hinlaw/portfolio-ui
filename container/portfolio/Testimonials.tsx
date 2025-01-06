@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import useTranslation from 'next-translate/useTranslation'
 
 const testimonials = [
     {
@@ -16,37 +17,53 @@ const testimonials = [
         role: 'Lead Developer at WebSolutions',
         comment: 'He has an incredible ability to learn quickly and adapt seamlessly to new tasks and technologies. Whether tackling complex problems or refining details, his analytical mindset and creativity consistently lead to innovative and effective solutions.',
         avatar: '/mike-smith-avatar.jpg'
-    },
-    {
-        id: 3,
-        name: 'Sarah Johnson',
-        role: 'UX Designer at DesignHub',
-        comment: 'His technical skills are outstanding, but what truly sets him apart is his ability to combine technical expertise with a deep understanding of user needs. He delivers work that is not only functional but intuitive and user-centered, showcasing a rare blend of capability and empathy.',
-        avatar: '/sarah-johnson-avatar.jpg'
     }
 ]
 
 export default function Testimonials() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [direction, setDirection] = useState(0)
+    const [timer, setTimer] = useState<NodeJS.Timeout>()
+    const { t: tCommon } = useTranslation('common')
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setDirection(1)
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-        }, 15000)
+        const startTimer = () => {
+            return setInterval(() => {
+                setDirection(1)
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+            }, 15000)
+        }
 
-        return () => clearInterval(timer)
+        const newTimer = startTimer()
+        setTimer(newTimer)
+
+        return () => clearInterval(newTimer)
     }, [])
 
     const handlePrev = () => {
         setDirection(-1)
         setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
+
+        // Reset timer
+        if (timer) clearInterval(timer)
+        const newTimer = setInterval(() => {
+            setDirection(1)
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+        }, 15000)
+        setTimer(newTimer)
     }
 
     const handleNext = () => {
         setDirection(1)
         setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+
+        // Reset timer
+        if (timer) clearInterval(timer)
+        const newTimer = setInterval(() => {
+            setDirection(1)
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+        }, 15000)
+        setTimer(newTimer)
     }
 
     const variants = {
@@ -67,7 +84,7 @@ export default function Testimonials() {
     return (
         <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-900 text-white overflow-hidden">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold mb-12 text-center">What Others Say</h2>
+                <h2 className="text-4xl font-bold mb-12 text-center">{tCommon('what others say')}</h2>
                 <div className="relative max-w-4xl mx-auto">
                     <AnimatePresence mode="wait" custom={direction}>
                         <motion.div
@@ -127,4 +144,3 @@ export default function Testimonials() {
         </section>
     )
 }
-

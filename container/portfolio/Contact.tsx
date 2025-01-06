@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import useTranslation from 'next-translate/useTranslation'
 
 export default function Contact() {
+    const { t: tCommon } = useTranslation('common')
     const [formState, setFormState] = useState({
         name: '',
         email: '',
@@ -23,7 +25,7 @@ export default function Contact() {
 
     return (
         <section className="py-20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100">
                 <motion.div
                     className="absolute inset-0"
                     animate={{
@@ -43,7 +45,7 @@ export default function Contact() {
                 />
             </div>
             <div className="container mx-auto px-4 relative">
-                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white">Contact Me</h2>
+                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white">{tCommon('contact me')}</h2>
                 <motion.form
                     onSubmit={handleSubmit}
                     className="max-w-lg mx-auto"
@@ -55,7 +57,7 @@ export default function Contact() {
                         <input
                             type="text"
                             name="name"
-                            placeholder="Your Name"
+                            placeholder={tCommon('your name')}
                             value={formState.name}
                             onChange={handleChange}
                             className="w-full px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
@@ -66,7 +68,7 @@ export default function Contact() {
                         <input
                             type="email"
                             name="email"
-                            placeholder="Your Email"
+                            placeholder={tCommon('your email')}
                             value={formState.email}
                             onChange={handleChange}
                             className="w-full px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
@@ -76,7 +78,7 @@ export default function Contact() {
                     <div className="mb-6">
                         <textarea
                             name="message"
-                            placeholder="Your Message"
+                            placeholder={tCommon('your message')}
                             value={formState.message}
                             onChange={handleChange}
                             className="w-full px-4 py-2 bg-white text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 h-32 resize-none"
@@ -85,11 +87,11 @@ export default function Contact() {
                     </div>
                     <motion.button
                         type="submit"
-                        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                        className="w-full bg-gradient-to-br from-blue-600 to-purple-600 text-white font-semibold py-2 px-4 rounded-lg duration-300"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Send Message
+                        {tCommon('send message')}
                     </motion.button>
                 </motion.form>
             </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import useTranslation from 'next-translate/useTranslation'
 
 const skills = [
     { name: 'React', icon: '⚛️' },
@@ -18,6 +19,7 @@ const skills = [
 
 export default function Skills() {
     const [isVisible, setIsVisible] = useState(false)
+    const { t: tCommon } = useTranslation('common')
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,9 +37,9 @@ export default function Skills() {
     }, [])
 
     return (
-        <section id="skills" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+        <section id="skills" className="py-20 bg-gradient-to-br from-purple-900 to-blue-900 text-white overflow-hidden">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold mb-12 text-center">Skills</h2>
+                <h2 className="text-4xl font-bold mb-12 text-center">{tCommon('skills')}</h2>
                 <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     {skills.map((skill, index) => (
                         <motion.div

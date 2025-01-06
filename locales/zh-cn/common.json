@@ -1,3 +1,11 @@
 {
-    "hi": "你好"
+    "worked for": "工作经历",
+    "skills": "技能",
+    "projects": "项目",
+    "what others say": "他人评价",
+    "contact me": "联系我",
+    "your name": "您的姓名",
+    "your email": "您的邮箱",
+    "your message": "您的消息",
+    "send message": "发送消息"
 }
