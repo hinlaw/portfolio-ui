@@ -22,7 +22,7 @@ export default function RootLayout({
     return (
         <>
             <Head>
-                <title>title</title>
+                <title>Dexter Law - Frontend Developer</title>
                 <meta name="description" content={metadata.description || ''} />
                 <link rel="stylesheet" />
             </Head>
