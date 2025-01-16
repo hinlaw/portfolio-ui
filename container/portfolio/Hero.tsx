@@ -5,9 +5,20 @@ import useTranslation from 'next-translate/useTranslation'
 export default function Hero() {
     const { t: tCommon } = useTranslation('common')
     const [isVisible, setIsVisible] = useState(false)
+    const [sentences, setSentences] = useState<string[]>([])
 
     useEffect(() => {
         setIsVisible(true)
+        const fetchSentences = async () => {
+            try {
+                const response = await fetch('http://167.71.218.251/api')
+                const data = await response.json()
+                setSentences(data.sentences)
+            } catch (error) {
+                console.error('Error fetching sentences:', error)
+            }
+        }
+        fetchSentences()
     }, [])
 
     return (
@@ -31,12 +42,14 @@ export default function Hero() {
                     <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-700 motion-duration-2000">n</span>
                     <span className="inline-block motion-translate-y-loop-50/mirror motion-delay-800 motion-duration-2000">d</span>
                 </h1>
+                <div className="text-xl max-w-2xl mx-auto mb-8 text-gray-300">
+                    {sentences.map((sentence, index) => (
+                        <p key={index}>{sentence}</p>
+                    ))}
+                </div>
                 <h2 className="text-4xl mb-8 animate-pulse bg-gradient-to-br from-blue-600 to-purple-200 bg-clip-text text-transparent font-bold">
                     Dexter Law
                 </h2>
-                <p className="text-xl max-w-2xl mx-auto mb-8 text-gray-300">
-                    Crafting beautiful, responsive, and user-friendly web experiences with cutting-edge technologies.
-                </p>
                 <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-xl inline-block">
                     <h3 className="text-2xl font-semibold mb-4 text-gray-300">{tCommon('worked for')}</h3>
                     <div className="flex items-center justify-center">
@@ -52,4 +65,3 @@ export default function Hero() {
         </section>
     )
 }
-
