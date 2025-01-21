@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { Button } from '@/ui/button'
 import {
     DropdownMenu,
@@ -19,8 +20,16 @@ export function LanguageSwitcher() {
     const { pathname, asPath, query } = router
 
     const switchLanguage = (locale: string) => {
+        localStorage.setItem('preferredLanguage', locale)
         router.push({ pathname, query }, asPath, { locale })
     }
+
+    useEffect(() => {
+        const savedLanguage = localStorage.getItem('preferredLanguage')
+        if (savedLanguage && savedLanguage !== router.locale) {
+            router.push({ pathname, query }, asPath, { locale: savedLanguage })
+        }
+    }, [])
 
     return (
         <DropdownMenu>
