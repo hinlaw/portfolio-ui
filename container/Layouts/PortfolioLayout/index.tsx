@@ -26,7 +26,7 @@ export default function RootLayout({
                 <meta name="description" content={metadata.description || ''} />
                 <link rel="stylesheet" />
             </Head>
-            <div className={poppins.className}>
+            <div className={`${poppins.className} bg-[#15202B]`}>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="light"
