@@ -25,7 +25,7 @@ export default function Contact() {
 
     return (
         <section className="py-20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100">
+            <div className="absolute inset-0 bg-[#001432]">
                 <motion.div
                     className="absolute inset-0"
                     animate={{
@@ -45,7 +45,7 @@ export default function Contact() {
                 />
             </div>
             <div className="container mx-auto px-4 relative">
-                <h2 className="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-white">{tCommon('contact me')}</h2>
+                <h2 className="text-4xl font-bold mb-12 text-center text-white">{tCommon('contact me')}</h2>
                 <motion.form
                     onSubmit={handleSubmit}
                     className="max-w-lg mx-auto"
@@ -98,4 +98,3 @@ export default function Contact() {
         </section>
     )
 }
-
