@@ -1,11 +1,14 @@
 {
     "worked for": "工作經歷",
     "skills": "技能",
+    "contact": "聯繫我",
     "projects": "項目",
+    "about": "關於我",
     "what others say": "他人評價",
-    "contact me": "聯繫我",
     "your name": "您的姓名",
     "your email": "您的電子郵件",
     "your message": "您的消息",
-    "send message": "發送消息"
+    "send message": "發送消息",
+    "driven to learn ready to build eager to grow": "渴望學習，準備構建，期待成長",
+    "turning ideas into interactive web experiences": "將創意化為互動網頁體驗"
 }
