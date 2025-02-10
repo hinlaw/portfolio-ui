@@ -1,11 +1,24 @@
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription, SheetFooter, SheetClose } from "@/ui/sheet";
+import {
+    Sheet,
+    SheetContent,
+    SheetTrigger,
+    SheetHeader,
+    SheetTitle,
+    SheetDescription,
+    SheetFooter,
+    SheetClose
+} from "@/ui/sheet";
 import useTranslation from "next-translate/useTranslation";
 import Link from 'next/link';
 import { useState } from 'react';
+import { LanguageSwitcher } from "../LanguageSwitcher";
+import { Button } from "@/ui/button";
+import { Label } from "@/ui/label";
+import { Input } from "@/ui/input";
 
 const Navbar = () => {
     const { t: tCommon } = useTranslation("common");
-    const [isLanguageSheetOpen, setLanguageSheetOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className="fixed top-0 left-0 right-0 bg-[#001432] z-40 px-4 py-4">
@@ -28,7 +41,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <Sheet>
+                <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
                         <button className="text-gray-100 hover:text-[#87CEEB] transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -38,34 +51,29 @@ const Navbar = () => {
                             </svg>
                         </button>
                     </SheetTrigger>
-
-                    <SheetContent>
-                        <SheetHeader>
-                            <SheetTitle>{tCommon("switchLanguage")}</SheetTitle>
-                            <SheetDescription>
-                                {/* Add a description if needed */}
+                    <SheetContent
+                        side="right"
+                        className="h-full bg-[#001432] border-[#87CEEB]"
+                    >
+                        <SheetHeader className="space-y-4">
+                            <SheetTitle className="text-[#87CEEB] text-xl">
+                                {tCommon("switch language")}
+                            </SheetTitle>
+                            <SheetDescription className="text-gray-300">
+                                {tCommon("description test")}
                             </SheetDescription>
                         </SheetHeader>
-                        <div className="grid gap-4 py-4">
-                            <button onClick={() => setLanguageSheetOpen(true)}>
-                                {tCommon("switchLanguage")}
-                            </button>
-                            {isLanguageSheetOpen && (
-                                <Sheet>
-                                    <SheetContent>
-                                        {/* Language switcher component or logic here */}
-                                        <button onClick={() => setLanguageSheetOpen(false)}>
-                                            {tCommon("close")}
-                                        </button>
-                                    </SheetContent>
-                                </Sheet>
-                            )}
+                        <div className="py-6">
+                            <LanguageSwitcher />
                         </div>
-                        <SheetFooter>
+                        <SheetFooter className="absolute bottom-4 right-4">
                             <SheetClose asChild>
-                                <button type="button" onClick={() => setLanguageSheetOpen(false)}>
+                                <Button
+                                    variant="outline"
+                                    className="border-[#87CEEB] text-[#87CEEB] hover:bg-[#87CEEB] hover:text-white"
+                                >
                                     {tCommon("close")}
-                                </button>
+                                </Button>
                             </SheetClose>
                         </SheetFooter>
                     </SheetContent>

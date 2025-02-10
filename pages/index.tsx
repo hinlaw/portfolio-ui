@@ -8,17 +8,25 @@ import Contact from "@/container/portfolio/Contact";
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import Navbar from '@/components/Navbar';
 import RootLayout from '@/container/Layouts/Layout';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetFooter,
+  SheetClose
+} from "@/ui/sheet";
+import { useState } from 'react';
 
 const Home = () => {
   const { t: tCommon } = useTranslation("common");
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <RootLayout>
       <Navbar />
-      {/* <div className="absolute top-0 right-0 p-4 z-50">
-        <LanguageSwitcher />
-      </div> */}
-
       {/* Hero Section */}
       <div id="about" className=" flex flex-col justify-center items-start px-4 md:px-20 pt-28 mx-auto max-w-4xl">
         <div className="text-white text-xl md:text-2xl mb-8">
@@ -47,8 +55,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-
       {/* Skills Grid */}
       <div id="skills" className="grid grid-cols-1 md:grid-cols-4 gap-8 px-4 md:px-20 py-20">
         <div className="flex items-center space-x-4">
