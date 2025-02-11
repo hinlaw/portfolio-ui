@@ -26,11 +26,10 @@ export default function RootLayout({
                 <meta name="description" content={metadata.description || ''} />
                 <link rel="stylesheet" />
             </Head>
-            <div className={`${poppins.className} bg-[#001432]`}>
+            <div className={`${poppins.className}`}>
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="light"
-                    disableTransitionOnChange
                 >
                     {children}
                 </ThemeProvider>
