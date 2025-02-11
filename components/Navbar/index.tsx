@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import { Button } from "@/ui/button";
 import { Menu } from "lucide-react";
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter, SheetClose } from "@/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/ui/sheet";
 
 const Navbar = () => {
     const { t: tCommon } = useTranslation("common");
