@@ -1,13 +1,16 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { Button } from '@/ui/button'
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger
-} from '@/ui/dropdown-menu'
 import { Globe } from 'lucide-react'
+import {
+    Sheet,
+    SheetContent,
+    SheetTrigger,
+    SheetHeader,
+    SheetTitle,
+    SheetFooter,
+    SheetClose
+} from "@/ui/sheet"
 
 const languages = [
     { code: 'en', label: 'English' },
@@ -31,24 +34,37 @@ export function LanguageSwitcher() {
         }
     }, [])
 
+    const currentLanguage = languages.find(lang => lang.code === router.locale)?.label || 'English'
+
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full p-2 bg-gray-100">
+        <Sheet>
+            <SheetTrigger asChild>
+                <Button
+                    variant="ghost"
+                    className="flex justify-start w-full gap-2 px-4 py-2 rounded-lg border-[#87CEEB] text-[#87CEEB] hover:bg-gray-700"
+                >
                     <Globe className="h-5 w-5" />
+                    {currentLanguage}
                 </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="rounded-lg p-3 bg-gray-100 space-y-2" align="end">
-                {languages.map((lang) => (
-                    <DropdownMenuItem
-                        key={lang.code}
-                        onClick={() => switchLanguage(lang.code)}
-                        className="cursor-pointer"
-                    >
-                        {lang.label}
-                    </DropdownMenuItem>
-                ))}
-            </DropdownMenuContent>
-        </DropdownMenu>
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-gray-900 w-[300px] border-[#87CEEB]">
+                <SheetHeader>
+                    <SheetTitle className="text-[#87CEEB] text-center">Select Language</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col gap-2 py-4">
+                    {languages.map((lang) => (
+                        <Button
+                            key={lang.code}
+                            variant="ghost"
+                            onClick={() => switchLanguage(lang.code)}
+                            className={`justify-start text-gray-100 hover:text-[#87CEEB] hover:bg-black ${router.locale === lang.code ? 'bg-black' : ''
+                                }`}
+                        >
+                            {lang.label}
+                        </Button>
+                    ))}
+                </div>
+            </SheetContent>
+        </Sheet>
     )
-} 
+}

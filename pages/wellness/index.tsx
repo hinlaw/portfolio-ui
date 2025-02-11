@@ -28,7 +28,7 @@ const Wellness = () => {
                     </SheetTrigger>
                     <SheetContent
                         side="right"
-                        className="w-full bg-black border-[#87CEEB] z-50"
+                        className="h-full bg-black border-[#87CEEB] z-50"
                     >
                         <SheetHeader className="space-y-4">
                             <SheetTitle className="text-[#87CEEB] text-xl">
@@ -53,9 +53,9 @@ const Wellness = () => {
                         </SheetFooter>
                     </SheetContent>
                 </Sheet>
-                <div className="z-40">
+                {/* <div className="z-40">
                     <Navbar />
-                </div>
+                </div> */}
             </div>
         </div>
     )

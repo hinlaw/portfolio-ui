@@ -1,21 +1,10 @@
-import {
-    Sheet,
-    SheetContent,
-    SheetTrigger,
-    SheetHeader,
-    SheetTitle,
-    SheetDescription,
-    SheetFooter,
-    SheetClose
-} from "@/ui/sheet";
 import useTranslation from "next-translate/useTranslation";
 import Link from 'next/link';
 import { useState } from 'react';
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import { Button } from "@/ui/button";
-import { Label } from "@/ui/label";
-import { Input } from "@/ui/input";
 import { Menu } from "lucide-react";
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter, SheetClose } from "@/ui/sheet";
 
 const Navbar = () => {
     const { t: tCommon } = useTranslation("common");
@@ -50,29 +39,9 @@ const Navbar = () => {
                         </SheetTrigger>
                         <SheetContent
                             side="right"
-                            className="fixed top-0 right-0 h-full w-[400px] bg-white border-[#87CEEB]"
+                            className="w-[350px] bg-[#001432] border-gray-800"
                         >
-                            <SheetHeader className="space-y-4">
-                                <SheetTitle className="text-[#87CEEB] text-xl">
-                                    {tCommon("switch language")}
-                                </SheetTitle>
-                                <SheetDescription className="text-gray-300">
-                                    {tCommon("description test")}
-                                </SheetDescription>
-                            </SheetHeader>
-                            <div className="py-6">
-                                <LanguageSwitcher />
-                            </div>
-                            <SheetFooter className="absolute bottom-4 right-4">
-                                <SheetClose asChild>
-                                    <Button
-                                        variant="outline"
-                                        className="border-[#87CEEB] text-[#87CEEB] hover:bg-[#87CEEB] hover:text-white"
-                                    >
-                                        {tCommon("close")}
-                                    </Button>
-                                </SheetClose>
-                            </SheetFooter>
+                            <LanguageSwitcher />
                         </SheetContent>
                     </Sheet>
                 </div>
