@@ -8,6 +8,7 @@ import Contact from "@/container/portfolio/Contact";
 import Navbar from '@/components/Navbar';
 import RootLayout from '@/container/Layouts/Layout';
 import { ArrowRight } from 'lucide-react';
+import VideoPlayer from '@/components/VideoPlayer/LoopPlayer';
 
 
 
@@ -16,11 +17,11 @@ const Home = () => {
 
 
   return (
-    <>
+    <><RootLayout>
       <Navbar />
       {/* Hero Section */}
       <div className='bg-[#001432]'>
-        <div id="about" className="flex flex-row justify-between items-center px-4 md:px-20 pt-28 mx-auto max-w-6xl">
+        <div id="about" className="flex flex-col lg:flex-row justify-between items-center px-4 md:px-20 pt-28 mx-auto max-w-6xl">
           {/* Left side content */}
           <div className="flex flex-col justify-center items-start max-w-2xl">
             <div className="text-white text-xl md:text-2xl mb-8">
@@ -45,17 +46,12 @@ const Home = () => {
           </div>
 
           {/* Right side video */}
-          <div className="hidden md:block w-[400px] h-[400px] relative">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover rounded-2xl"
-            >
-              <source src="/sakura.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className="relative ml-0 lg:ml-12 mt-12 lg:mt-0">
+            <VideoPlayer
+              url="/aurora.mp4"
+              width="400px"
+              height="380px"
+            />
           </div>
         </div>
 
@@ -64,6 +60,7 @@ const Home = () => {
           <Contact />
         </div>
       </div>
+    </RootLayout>
     </>
   )
 }

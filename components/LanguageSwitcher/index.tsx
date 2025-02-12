@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { Button } from '@/ui/button'
 import { Globe, X } from 'lucide-react'
 import {
     Sheet,
@@ -11,6 +10,7 @@ import {
     SheetClose
 } from "../ui/sheet"
 import useTranslation from 'next-translate/useTranslation'
+import { Button } from '../ui/button'
 
 const languages = [
     { code: 'en', label: 'English' },
@@ -42,9 +42,9 @@ export function LanguageSwitcher() {
             <SheetTrigger asChild>
                 <Button
                     variant="ghost"
-                    className="flex justify-start w-full gap-2 px-4 py-2 rounded-lg border-[#87CEEB] text-[#87CEEB] hover:bg-gray-700"
+                    className="flex justify-start w-full gap-2 px-4 py-2 rounded-lg border-[#87CEEB] text-[#87CEEB] hover:bg-gray-700 hover:text-gray-100"
                 >
-                    <Globe className="h-5 w-5" />
+                    <Globe className="h-5 w-5 " />
                     {currentLanguage}
                 </Button>
             </SheetTrigger>
