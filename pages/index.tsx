@@ -28,7 +28,7 @@ const Home = () => {
               {tCommon("driven to learn ready to build eager to grow")}
             </div>
 
-            <div className="text-transparent bg-clip-text bg-gradient-to-r from-[#87CEEB] to-purple-300 text-4xl md:text-6xl font-bold mb-8">
+            <div className="text-transparent bg-clip-text bg-gradient-to-r from-[#87CEEB] to-purple-300 text-4xl lg:text-6xl font-bold mb-8 leading-[1.5] lg:leading-[1.5]">
               {tCommon("turning ideas into interactive web experiences")}
             </div>
 
@@ -46,7 +46,7 @@ const Home = () => {
           </div>
 
           {/* Right side video */}
-          <div className="relative ml-0 lg:ml-12 mt-12 lg:mt-0">
+          <div className="relative ml-0 lg:ml-12 mt-12 lg:mt-0 my-0 lg:my-20">
             <VideoPlayer
               url="/aurora.mp4"
               width="400px"
