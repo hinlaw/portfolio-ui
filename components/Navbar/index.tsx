@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import { Button } from "@/ui/button";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 
 const Navbar = () => {
     const { t: tCommon } = useTranslation("common");
@@ -22,9 +22,6 @@ const Navbar = () => {
                         <div className="flex items-center space-x-6 bg-black px-2 py-1 rounded-full">
                             <Link href="#about" className="text-gray-100 hover:text-[#87CEEB] transition-colors">
                                 {tCommon("about")}
-                            </Link>
-                            <Link href="#skills" className="text-gray-100 hover:text-[#87CEEB] transition-colors">
-                                {tCommon("skills")}
                             </Link>
                             <Link href="#contact" className="text-gray-100 hover:text-[#87CEEB] transition-colors">
                                 {tCommon("contact")}

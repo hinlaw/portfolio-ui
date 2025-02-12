@@ -20,16 +20,17 @@ const Home = () => {
       <Navbar />
       {/* Hero Section */}
       <div className='bg-[#001432]'>
-        <div id="about" className="flex flex-col justify-center items-start px-4 md:px-20 pt-28 mx-auto max-w-4xl ">
-          <div className="text-white text-xl md:text-2xl mb-8">
-            {tCommon("driven to learn ready to build eager to grow")}
-          </div>
+        <div id="about" className="flex flex-row justify-between items-center px-4 md:px-20 pt-28 mx-auto max-w-6xl">
+          {/* Left side content */}
+          <div className="flex flex-col justify-center items-start max-w-2xl">
+            <div className="text-white text-xl md:text-2xl mb-8">
+              {tCommon("driven to learn ready to build eager to grow")}
+            </div>
 
-          <div className="text-transparent bg-clip-text bg-gradient-to-r from-[#87CEEB] to-purple-300 text-4xl md:text-6xl font-bold mb-8">
-            {tCommon("turning ideas into interactive web experiences")}
-          </div>
+            <div className="text-transparent bg-clip-text bg-gradient-to-r from-[#87CEEB] to-purple-300 text-4xl md:text-6xl font-bold mb-8">
+              {tCommon("turning ideas into interactive web experiences")}
+            </div>
 
-          <div className="max-w-2xl">
             <div className="flex">
               <div className="group bg-[#000920] text-white px-8 py-3 rounded-full flex items-center gap-2 border border-[#2D3139]">
                 {tCommon("Get a close look at my work")}
@@ -41,6 +42,20 @@ const Home = () => {
                 </button>
               </div>
             </div>
+          </div>
+
+          {/* Right side video */}
+          <div className="hidden md:block w-[400px] h-[400px] relative">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover rounded-2xl"
+            >
+              <source src="/sakura.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
 

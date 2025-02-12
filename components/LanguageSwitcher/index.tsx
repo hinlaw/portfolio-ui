@@ -8,9 +8,8 @@ import {
     SheetTrigger,
     SheetHeader,
     SheetTitle,
-    SheetFooter,
     SheetClose
-} from "@/ui/sheet"
+} from "../ui/sheet"
 import useTranslation from 'next-translate/useTranslation'
 
 const languages = [
